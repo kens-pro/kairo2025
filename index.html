@@ -2,12 +2,12 @@
 <html lang="ja">
 <head>
 <style>
-  /* --- ベーススタイル --- */
+  /* --- ベーススタイル（シニア層向けに見やすく調整） --- */
   :root {
     --main-blue: #2A4B68; /* 藍色 */
     --accent-red: #A34A4A; /* 小豆色 */
     --bg-color: #Fdfdfb; /* 生成り色 */
-    --text-color: #333;
+    --text-color: #222;   /* 文字色を濃くして読みやすく */
   }
   
   body {
@@ -16,7 +16,8 @@
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     color: var(--text-color);
     background-color: var(--bg-color);
-    line-height: 1.8;
+    line-height: 2.0; /* 行間を広めに設定 */
+    font-size: 18px;  /* 基本文字サイズを大きく */
   }
 
   /* --- レイアウト調整 --- */
@@ -50,7 +51,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to top, rgba(42,75,104,0.9), transparent);
+    background: linear-gradient(to top, rgba(42,75,104,0.95), transparent);
     padding: 60px 20px 40px;
     text-align: center;
     color: white;
@@ -58,19 +59,21 @@
 
   .hero-title {
     font-family: "Yu Mincho", "YuMincho", serif;
-    font-size: 2.2rem;
-    margin: 0 0 10px 0;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.0rem; /* スマホで改行が増えすぎないよう調整 */
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   }
   .hero-sub {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 0;
-    opacity: 0.95;
+    opacity: 1;
+    font-weight: bold;
   }
 
   /* --- 共通セクション --- */
   .lp-section {
-    padding: 60px 0;
+    padding: 50px 0;
     border-bottom: 1px solid #ddd;
   }
   
@@ -78,88 +81,139 @@
     font-family: "Yu Mincho", "YuMincho", serif;
     color: var(--main-blue);
     text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 2.0rem; /* 見出しを大きく */
+    margin-bottom: 40px;
     letter-spacing: 0.1em;
+    border-bottom: 2px solid var(--main-blue);
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 30px;
   }
 
   .lp-text-center { text-align: center; }
   .lp-bold { font-weight: bold; }
-  .lp-accent { color: var(--accent-red); font-weight: bold; }
+  .lp-accent { color: var(--accent-red); font-weight: bold; border-bottom: 2px solid rgba(163, 74, 74, 0.3); }
 
+  /* 大きな文字クラス */
+  .text-large {
+    font-size: 1.2rem;
+    line-height: 1.9;
+  }
 
-  /* --- ★画像の制御用スタイル（今回追加・調整） --- */
-  
-  /* 1. 通常の挿入画像（程よいサイズで中央寄せ） */
+  /* --- 画像スタイル --- */
   .img-medium {
     display: block;
     max-width: 100%;
-    width: 600px; /* PCでの最大幅を制限 */
+    width: 600px;
     height: auto;
-    margin: 20px auto; /* 上下に余白、左右中央寄せ */
+    margin: 30px auto;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
-  /* 2. キット内容などの縦長画像を小さく表示するクラス */
   .img-restrict-size {
     display: block;
-    max-width: 80%; /* スマホでも端までいかないように */
-    width: 400px;   /* PCでもこれ以上大きくならない */
+    max-width: 90%;
+    width: 500px;
     height: auto;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 30px auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 
-  /* 3. 2枚並べて表示するグリッド（小豆とローズマリー用） */
   .img-grid-2 {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 20px 0;
+    margin: 30px 0;
   }
   .img-grid-2 img {
-    width: 48%; /* 画面の半分弱 */
+    width: 48%;
     height: auto;
     object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
-
-  /* --- リストなどのパーツ --- */
+  /* --- リスト・ボックス --- */
   .kit-list, .tool-list {
     background: #fff;
-    padding: 30px;
-    border: 1px solid #ccc;
+    padding: 30px 20px; /* スマホで見やすいよう横パディング調整 */
+    border: 2px solid #ccc; /* 枠線を太く */
     border-radius: 8px;
     list-style: none;
     margin: 0 auto;
+    font-size: 1.1rem;
   }
   .kit-list li, .tool-list li {
-    margin-bottom: 10px;
-    padding-left: 1.2em;
+    margin-bottom: 15px;
+    padding-left: 1.5em;
     position: relative;
-    border-bottom: 1px dotted #eee;
-    padding-bottom: 5px;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 10px;
   }
-  .kit-list li::before { content: "●"; color: var(--main-blue); position: absolute; left: 0; }
-  .tool-list li::before { content: "✂"; color: var(--accent-red); position: absolute; left: 0; }
+  .kit-list li::before { content: "●"; color: var(--main-blue); position: absolute; left: 0; font-size: 1.2em; }
+  .tool-list li::before { content: "✂"; color: var(--accent-red); position: absolute; left: 0; font-size: 1.2em; }
+
+  /* チェックリスト風ボックス */
+  .check-box {
+    background-color: #f0f7ff;
+    border: 2px solid var(--main-blue);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+  }
+  .check-item {
+    font-size: 1.3rem; /* ここを大きく */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--main-blue);
+  }
+
+  /* 口コミ風ボックス */
+  .voice-box {
+    background-color: #fff0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent-red);
+    margin-top: 20px;
+  }
+
+  /* 草木染め注意ボックス */
+  .note-box {
+    background-color: #eee;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 40px;
+    font-size: 1rem;
+  }
+  .note-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
 
   .price-box {
     background-color: #f4f8fb;
-    border: 2px solid var(--main-blue);
-    padding: 30px;
+    border: 3px solid var(--main-blue);
+    padding: 40px 20px;
     text-align: center;
-    border-radius: 8px;
-    margin: 30px 0;
+    border-radius: 10px;
+    margin: 40px 0;
   }
   .price-yen {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--main-blue);
     font-weight: bold;
     font-family: "Yu Mincho", serif;
+    line-height: 1.2;
   }
 
   /* --- 柄選択 --- */
@@ -171,46 +225,50 @@
   }
   .pattern-item { width: 45%; text-align: center; }
   .pattern-item img { width: 100%; border-radius: 4px; margin-bottom: 10px; }
+  .pattern-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
 
   /* --- 注文フロー --- */
-  .flow-box { background: #fff; padding: 20px; border-radius: 8px; }
-  .flow-step { margin-bottom: 15px; font-weight: bold; }
+  .flow-box { background: #fff; padding: 25px; border-radius: 8px; border: 1px solid #ccc; }
+  .flow-step { margin-bottom: 20px; font-weight: bold; font-size: 1.1rem; }
   .flow-step span {
     background: var(--main-blue);
     color: white;
-    padding: 3px 8px;
+    padding: 5px 12px;
     border-radius: 50%;
     margin-right: 10px;
+    font-size: 1rem;
   }
 
   .dm-template {
     background-color: #f9f9f9;
-    border: 2px dashed var(--main-blue);
-    padding: 20px;
+    border: 3px dashed var(--main-blue);
+    padding: 25px;
     margin: 20px 0;
     text-align: left;
-    font-family: monospace;
-    color: #444;
+    font-size: 1.1rem; /* 入力項目も見やすく */
+    color: #333;
+    line-height: 1.8;
   }
 
   /* --- インスタ誘導ボタン --- */
   .insta-main-btn {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* ボタン文字を大きく */
     font-weight: bold;
-    padding: 20px 40px;
+    padding: 25px 30px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     display: block;
-    margin: 30px auto;
+    margin: 40px auto;
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
     text-align: center;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     transition: transform 0.2s;
+    line-height: 1.3;
   }
   .insta-main-btn:hover {
     transform: scale(1.02);
@@ -223,8 +281,8 @@
     bottom: 20px;
     right: 20px;
     z-index: 999;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background-color: var(--accent-red);
     color: white;
     text-decoration: none;
@@ -235,7 +293,7 @@
     align-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: transform 0.2s;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: center;
     line-height: 1.2;
     animation: floating 3s ease-in-out infinite;
@@ -245,7 +303,7 @@
     opacity: 0.9;
   }
   .sticky-cta span {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     display: block;
     margin-bottom: 2px;
   }
@@ -258,20 +316,21 @@
   @media screen and (max-width: 600px) {
     .sticky-cta {
       width: 90%;
-      height: 60px;
+      height: 70px;
       left: 5%;
       right: 5%;
       bottom: 15px;
-      border-radius: 30px;
+      border-radius: 35px;
       flex-direction: row;
       gap: 10px;
-      font-size: 1rem;
-      font-weight: bold;
+      font-size: 1.2rem;
     }
     .sticky-cta span {
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-bottom: 0;
     }
+    .hero-title { font-size: 1.6rem; }
+    .price-yen { font-size: 2.5rem; }
   }
 
 </style>
@@ -282,8 +341,8 @@
   <img src="image/IMG_8388.JPG" alt="藍染め刺し子 小豆カイロ" class="hero-img-full">
   
   <div class="hero-text-overlay">
-    <h1 class="hero-title">【限定藍染めセット】刺し子で作る<br>小豆カイロキット</h1>
-    <p class="hero-sub">一針一針、自分を癒やす手仕事の時間。<br>香りとぬくもりの贈り物。</p>
+    <h1 class="hero-title">【20個限定】<br>藍染め生地で作る<br>刺し子小豆カイロキット</h1>
+    <p class="hero-sub">置いておくだけでも絵になる、<br>大人のカイロです。</p>
   </div>
 </header>
 
@@ -291,48 +350,75 @@
 
   <!-- 2. 商品紹介 -->
   <section class="lp-section">
-    <h2 class="lp-title">Concept</h2>
-    <p>藍染め晒（さらし）の深い青に、幾何学模様を浮かび上がらせる「刺し子」。<br>
-    古くから伝わる日本の手仕事を、初めての方でも気軽に楽しめるキットにしました。</p>
-    <br>
-    <p>完成したカイロに詰め込むのは、<span class="lp-accent">北海道産の小豆180g</span>。<br>
-    電子レンジで温めることで天然の蒸気が生まれ、じんわりと体の芯まで温めてくれます。</p>
+    <div class="section-header">
+      <h2 class="lp-title">Concept</h2>
+    </div>
+    
+    <div class="text-large">
+      <p>深い藍色に、真っ白な刺し子糸。<br>
+      昔ながらの美しいコントラストが、目にも心にも優しい時間を運んでくれます。</p>
+      <br>
+      <p>中身は<span class="lp-accent">北海道産小豆を20％増量！</span><br>
+      たっぷりと詰め込みました。</p>
+    </div>
 
-    <!-- ★【2】画像追加エリア：小豆とローズマリー（2枚並び） -->
+    <!-- ★【2】画像追加エリア：小豆とローズマリー -->
     <div class="img-grid-2">
-      <!-- 小豆の画像URL -->
       <img src="image/IMG_8386.JPG" alt="北海道産小豆">
-      <!-- ローズマリーの画像URL -->
       <img src="image/IMG_0915.JPG" alt="ハーブ">
     </div>
 
-    <p>さらに、リラックス効果のある<span class="lp-bold">ローズマリー</span>をブレンド。<br>
-    目元やお腹に乗せれば、優しいハーブの香りが広がり、極上の癒やしタイムを演出します。</p>
+    <div class="text-large">
+      <p>さらに、癒やしの<span class="lp-bold">ローズマリー</span>も長めに入れました🌿<br>
+      温めるとほのかに漂うハーブの香りが、あなたを包み込みます。</p>
+    </div>
   </section>
 
   <!-- 3. 初心者でも安心の理由 -->
   <section class="lp-section" style="background-color:#fff;">
-    <h2 class="lp-title">Features</h2>
-    <h3 style="color:var(--main-blue);">1. 面倒な下書きは不要</h3>
-    <p>藍染め晒には、すでに<span class="lp-bold">「フリクションペン」で方眼下図を描いています。</span><br>
-    定規で線を引く手間なく、すぐに刺し始められます。下書き線はアイロンの熱で綺麗に消えるので安心です。</p>
+    <div class="section-header">
+      <h2 class="lp-title">Features</h2>
+    </div>
+
+    <div class="text-large" style="margin-bottom:30px;">
+      <p class="lp-text-center" style="font-size:1.4rem; font-weight:bold;">
+        「でも、私に作れるかな…？」
+      </p>
+      <br>
+      <p>大丈夫です！<br>
+      実は、私も相変わらずの刺し子チャレンジャーなんです（笑）。</p>
+      <p>だからこそ、<span class="lp-accent">「初心者が絶対に失敗しないキットにして！」</span>って、わがまま言い放題で作ってもらいました。</p>
+    </div>
+
+    <!-- チェックリスト -->
+    <div class="check-box">
+      <div class="check-item">✅ 面倒な下書きは「記入済み」！</div>
+      <div class="check-item">✅ 刺し子どりチョイスの針も糸もセット！</div>
+      <div class="check-item">✅ 刺し子どりの「解説動画」付き！</div>
+    </div>
     
-    <h3 style="color:var(--main-blue); margin-top:30px;">2. 解説動画付きで安心</h3>
-    <p>紙の仕様書に加え、制作手順を丁寧に解説した<span class="lp-bold">限定動画（Vimeo）</span>をご用意しました。<br>
-    キットに同封されたQRコードとパスワードを使って、スマホを見ながら自分のペースで作ることができます。</p>
-    
-    <!-- ★【3】画像追加エリア：説明書などのイメージ画像 -->
+    <!-- ★【3】画像追加エリア：説明書などのイメージ -->
     <img src="image/IMG_3306.JPG" alt="説明書と動画" class="img-medium">
     
-    <p>刺し子初心者さんでも迷わず完成させられます。</p>
+    <div class="voice-box">
+      「不器用な私でもできた！」
+      <br><span style="font-size:1rem; color:#333; font-weight:normal;">（昨年のお客様の声）</span>
+    </div>
+
+    <p class="lp-text-center text-large" style="margin-top:30px;">
+      と喜びの声をたくさんいただきました。<br>
+      今年も私と一緒に、チクチク手仕事しませんか？
+    </p>
   </section>
 
   <!-- 4. キット内容 -->
   <section class="lp-section">
-    <h2 class="lp-title">Kit Contents</h2>
-    <p class="lp-text-center" style="margin-bottom:20px;">【限定藍染めセット】<br>お届けする小豆カイロキットの中身</p>
+    <div class="section-header">
+      <h2 class="lp-title">Kit Contents</h2>
+      <p>【20個限定カスタムキット】<br>お届けする中身</p>
+    </div>
     
-    <!-- ★【4】キット内容の画像（※サイズ調整済み） -->
+    <!-- ★【4】キット内容の画像 -->
     <img src="image/IMG_3319.JPG" alt="キットの中身一式" class="img-restrict-size">
 
     <ul class="kit-list">
@@ -346,8 +432,19 @@
       <li>仕様書・説明書（動画QRコード・パスワード付）</li><br>※は、限定セットだけの同梱品です。
     </ul>
 
+    <!-- 草木染めのご注意 -->
+    <div class="note-box">
+      <div class="note-title">🌿草木染めについてのご注意🌿</div>
+      <p>草木染めは自然素材を使った手染めのため、以下の点をご理解ください。</p>
+      <ul style="margin-top:10px; padding-left:20px;">
+        <li>一点ごとに色合いやムラが異なります</li>
+        <li>光や時間とともに少しずつ色が変化します</li>
+      </ul>
+      <p style="margin-top:10px;">世界に一つだけの風合いとして、お迎えいただければ嬉しいです☺️</p>
+    </div>
+
     <div style="margin-top:40px;">
-      <p class="lp-text-center lp-bold">お客様にご用意いただくもの</p>
+      <p class="lp-text-center lp-bold text-large">お客様にご用意いただくもの</p>
       <ul class="tool-list">
         <li>布用ハサミ</li>
         <li>糸切りバサミ</li>
@@ -360,28 +457,32 @@
 
   <!-- 5. 選べる柄 -->
   <section class="lp-section">
-    <h2 class="lp-title">Select Pattern</h2>
+    <div class="section-header">
+      <h2 class="lp-title">Select Pattern</h2>
+    </div>
     
-    <!-- ★【5】画像追加エリア：小豆と刺し子カイロ各種（集合写真など） -->
-    <img src="ここにカイロ各種の画像URLを貼る" alt="完成した小豆カイロたち" class="img-medium">
+    <!-- ★【5】画像追加エリア：カイロ集合写真 -->
+    <img src="image/IMG_8393.JPG" alt="完成した小豆カイロたち" class="img-medium">
 
-    <p class="lp-text-center" style="margin-bottom:30px; margin-top:20px;">お申し込み時に、2種類の柄からお選びいただけます。</p>
+    <p class="lp-text-center text-large" style="margin-bottom:30px; margin-top:20px;">
+      お申し込み時に、<br>2種類の柄からお選びいただけます。
+    </p>
     
     <div class="pattern-grid">
       <!-- 一目干網 -->
       <div class="pattern-item">
         <!-- ★【6】一目干網の画像 -->
         <img src="image/IMG_8383.JPG" alt="一目干網">
-        <p class="lp-bold">一目干網（ひとめほしあみ）</p>
-        <p style="font-size:0.8rem;">網のような幾何学模様が美しい、伝統的な柄です。</p>
+        <p class="pattern-name">一目干網（ひとめほしあみ）</p>
+        <p>網のような幾何学模様が美しい、伝統的な柄です。</p>
       </div>
       
       <!-- 丸つなぎ -->
       <div class="pattern-item">
-        <!-- 写真がない場合はダミー表示 -->
-       <img src="image/IMG_8383.JPG" alt="一目干網">
-        <p class="lp-bold">丸つなぎ</p>
-        <p style="font-size:0.8rem;">円満や調和を意味する、縁起の良い七宝つなぎのような丸柄です。</p>
+        <!-- 写真がない場合はダミー -->
+        <img src="image/IMG_8383.JPG" alt="一目干網">
+        <p class="pattern-name">丸つなぎ</p>
+        <p>円満や調和を意味する、縁起の良い七宝つなぎのような丸柄です。</p>
       </div>
     </div>
   </section>
@@ -389,16 +490,16 @@
   <!-- 6. 価格・注文フロー -->
   <section class="lp-section">
     <div class="price-box">
-      <p>藍染め刺し子で作る小豆カイロキット</p>
-      <p class="price-yen">¥3,000 <span style="font-size:1rem; font-weight:normal;">(税込)</span></p>
-      <p class="lp-accent">★日本全国 送料込み</p>
-      <p style="font-size:0.9rem;">（クリックポストにてお届けします）</p>
+      <p class="text-large">藍染め生地で作る<br>“刺し子どり小豆カイロ” キット</p>
+      <p class="price-yen">¥3,000 <span style="font-size:1.2rem; font-weight:normal;">(税込)</span></p>
+      <p class="lp-accent text-large">★日本全国 送料込み</p>
+      <p style="font-size:1rem;">（クリックポストにてお届けします）</p>
     </div>
 
     <h3 class="lp-text-center">ご注文の流れ（DMのみ）</h3>
     <div class="flow-box">
       <p class="flow-step"><span>1</span> 下記ボタンよりInstagramを開いてください。</p>
-      <p class="flow-step"><span>2</span> ダイレクトメール（DM）で下記４点をお知らせください。</p>
+      <p class="flow-step"><span>2</span> <span style="color:var(--main-blue);">DM（メッセージ）</span>で下記4点をお送りください。</p>
       
       <!-- DMテンプレート -->
       <div class="dm-template">
@@ -416,30 +517,41 @@
 
   <!-- 7. DM誘導エリア -->
   <section class="lp-section" id="dm-order">
-    <h2 class="lp-title">How to Order</h2>
-    <p class="lp-text-center">
-      今回は限定品のため、<br>
-      <span class="lp-bold">InstagramのDM（ダイレクトメッセージ）</span><br>
-      にてご注文を承ります。
-    </p>
+    <div class="section-header">
+      <h2 class="lp-title">How to Order</h2>
+    </div>
+    
+    <div class="text-large lp-text-center">
+      <p>
+        今回は<span class="lp-accent">【限定20セット】</span>のため、<br>
+        すぐに売り切れてしまうかもしれません。
+      </p>
+      <br>
+      <p>
+        ご希望の方は、<br>
+        <span class="lp-bold">InstagramのDM（ダイレクトメッセージ）</span><br>
+        にて「キット希望」とご連絡ください。
+      </p>
+      <p style="margin-top:20px;">材料が揃って、動画サポートもついた安心キット。<br>この冬の相棒を、自分の手で作ってみましょう！</p>
+    </div>
     
     <!-- Instagramへ飛ぶボタン -->
     <!-- ★【7】InstagramのURL -->
-    <a href="https://www.instagram.com/sashikodori/" class="insta-main-btn" target="_blank">
-      Instagramを開いて<br>DMを送る
+    <a href="https://www.instagram.com/sashikodori/" class="insta-main-btn" target="_blank" rel="noopener">
+      Instagramを開いて<br>「キット希望」と送る
     </a>
     
   </section>
 
   <!-- フッターリンク -->
-  <div style="text-align:center; font-size:0.8rem; margin-top:20px; color:#666;">
+  <div style="text-align:center; font-size:1rem; margin-top:30px; padding-bottom:30px; color:#666;">
     <a href="/tokushoho" target="_blank">特定商取引法に基づく表記</a>
   </div>
 
 </div>
 
 <!-- ★追従ボタン -->
-<a href="https://www.instagram.com/sashikodori/" class="sticky-cta" target="_blank">
+<a href="https://www.instagram.com/sashikodori/" class="sticky-cta" target="_blank" rel="noopener">
   <span>✉</span>
   DMする
 </a>
